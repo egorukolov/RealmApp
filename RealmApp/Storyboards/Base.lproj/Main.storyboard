@@ -21,6 +21,9 @@
                                 <segment title="A-Z"/>
                                 <segment title="Date"/>
                             </segments>
+                            <connections>
+                                <action selector="sortingList:" destination="qTB-O2-wEf" eventType="valueChanged" id="pAz-0D-nH9"/>
+                            </connections>
                         </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskListCell" textLabel="KCT-ki-RhJ" detailTextLabel="uKt-Lx-om9" style="IBUITableViewCellStyleValue1" id="pR1-Cs-nxB">
@@ -57,7 +60,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Task List" id="Okd-UY-Zp8">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Vz5-gV-raQ"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Vz5-gV-raQ">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="qTB-O2-wEf" id="xxf-uP-dAP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmf-wq-Bed" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,12 +132,12 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="554-bA-TwV">
                                 <connections>
-                                    <action selector="addButtonPressed:" destination="rBM-Ta-GxW" id="c88-ds-j74"/>
+                                    <action selector="addButtonPresed:" destination="rBM-Ta-GxW" id="NbC-87-wXk"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="BR3-xd-pk2">
                                 <connections>
-                                    <action selector="editButtonPressed:" destination="rBM-Ta-GxW" id="WfF-aa-LgH"/>
+                                    <action selector="editButtonPressed:" destination="rBM-Ta-GxW" id="S3j-yC-gtd"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
