@@ -34,6 +34,12 @@ class StorageManager {
         }
     }
     
+    func edit(taskList: TaskList, newValue: String) {
+        write {
+            taskList.name = newValue
+        }
+    }
+    
     private func write(_ complition: () -> Void) {
         
         do {

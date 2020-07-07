@@ -66,21 +66,33 @@ class TaskListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, isDone) in
+            self.showAlert(with: currentList) {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            isDone(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
 
 extension TaskListViewController {
-    private func showAlert() {
+    private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
         let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
-        alert.actionWithTaskList { newValue in
-             
-            let taskList = TaskList()
-            taskList.name = newValue
+        alert.action(with: taskList) { newValue in
             
-            StorageManager.shared.save(taskList: taskList)
-            let rowIndex = IndexPath(row: self.taskLists.count - 1, section: 0)
-            self.tableView.insertRows(at: [rowIndex], with: .automatic)
+            if let taskList = taskList, let completion = completion {
+                StorageManager.shared.edit(taskList: taskList, newValue: newValue)
+                completion()
+            } else {
+                let taskList = TaskList()
+                taskList.name = newValue
+                
+                StorageManager.shared.save(taskList: taskList)
+                let rowIndex = IndexPath(row: self.taskLists.count - 1, section: 0)
+                self.tableView.insertRows(at: [rowIndex], with: .automatic)
+            }
         }
         present(alert, animated: true)
     }
