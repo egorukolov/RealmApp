@@ -19,7 +19,9 @@ class TasksViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = currentList.name
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         
+        navigationItem.rightBarButtonItems = [addButton, editButtonItem]
         currentTasks = currentList.tasks.filter("isComplete = false")
         completedTask = currentList.tasks.filter("isComplete = true")
     }
@@ -48,6 +50,10 @@ class TasksViewController: UITableViewController {
         
         return cell
     }
+    
+    @objc private func addButtonPressed() {
+        showAlert()
+    }
 
 }
 
@@ -57,6 +63,10 @@ extension TasksViewController {
         
         let alert = AlertController(title: "New Task", message: "What do you want to do", preferredStyle: .alert)
         alert.actionWithTask { newValue, note in
+            let task = Task(value: [newValue, note])
+            StorageManager.shared.save(task: task, into: self.currentList)
+            let rowIndex = IndexPath(row: self.currentTasks.count - 1, section: 0)
+            self.tableView.insertRows(at: [rowIndex], with: .automatic)
         }
         present(alert, animated: true)
     }
