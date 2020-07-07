@@ -130,16 +130,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3h0-d2-az3">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="554-bA-TwV">
-                                <connections>
-                                    <action selector="addButtonPresed:" destination="rBM-Ta-GxW" id="NbC-87-wXk"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="BR3-xd-pk2">
-                                <connections>
-                                    <action selector="editButtonPressed:" destination="rBM-Ta-GxW" id="S3j-yC-gtd"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="554-bA-TwV"/>
+                            <barButtonItem systemItem="edit" id="BR3-xd-pk2"/>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>

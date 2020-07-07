@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2DF755C619E614DBE8B1950D /* Pods_RealmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53E0B1A7FE93E470829B1D1 /* Pods_RealmApp.framework */; };
+		561D945724B2EE8A00076B50 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561D945624B2EE8A00076B50 /* Task.swift */; };
+		561D945A24B3277100076B50 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561D945924B3277100076B50 /* StorageManager.swift */; };
 		563F2AEA24B0C6A40063A739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F2AE924B0C6A40063A739 /* AppDelegate.swift */; };
 		563F2AEC24B0C6A40063A739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F2AEB24B0C6A40063A739 /* SceneDelegate.swift */; };
 		563F2AF124B0C6A40063A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 563F2AEF24B0C6A40063A739 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		561D945624B2EE8A00076B50 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		561D945924B3277100076B50 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		563F2AE624B0C6A40063A739 /* RealmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563F2AE924B0C6A40063A739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		563F2AEB24B0C6A40063A739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		561D945524B2EE6D00076B50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				561D945624B2EE8A00076B50 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		561D945824B3274600076B50 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				561D945924B3277100076B50 /* StorageManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		563F2ADD24B0C6A40063A739 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				563F2B0224B0D4CD0063A739 /* Controllers */,
+				561D945824B3274600076B50 /* Managers */,
+				561D945524B2EE6D00076B50 /* Models */,
 				563F2B0124B0D4BA0063A739 /* Storyboards */,
 				563F2B0324B0D4F10063A739 /* Supporting Files */,
 				563F2B0424B0D5370063A739 /* Sources */,
@@ -247,7 +269,9 @@
 				563F2AFE24B0D0ED0063A739 /* TaskListViewController.swift in Sources */,
 				567DBFFC24B190E900C58DAB /* AlertController.swift in Sources */,
 				563F2B0024B0D13A0063A739 /* TasksViewController.swift in Sources */,
+				561D945A24B3277100076B50 /* StorageManager.swift in Sources */,
 				563F2AEA24B0C6A40063A739 /* AppDelegate.swift in Sources */,
+				561D945724B2EE8A00076B50 /* Task.swift in Sources */,
 				563F2AEC24B0C6A40063A739 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

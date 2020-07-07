@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskListViewController: UITableViewController {
 
+    var taskLists: Results<TaskList>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        taskLists = StorageManager.shared.realm.objects(TaskList.self)
 
     }
     
@@ -25,14 +30,25 @@ class TaskListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+         taskLists.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
 
+        let taskList = taskLists[indexPath.row]
+        cell.textLabel?.text = taskList.name
+        cell.detailTextLabel?.text = "\(taskList.tasks.count)"
+        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let taskList = taskLists[indexPath.row]
+        let tasksVC = segue.destination as! TasksViewController
+        tasksVC.currentList = taskList
     }
 }
 
