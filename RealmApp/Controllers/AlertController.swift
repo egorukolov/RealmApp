@@ -34,9 +34,11 @@ class AlertController: UIAlertController {
         }
     }
     
-    func actionWithTask(complition: @escaping (String, String) -> Void) {
+    func action(with task: Task?, complition: @escaping (String, String) -> Void) {
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+        if task != nil { doneButton = "Update"}
+        
+        let saveAction = UIAlertAction(title: doneButton, style: .default) { _ in
             guard let newTask = self.textFields?.first?.text else { return }
             guard !newTask.isEmpty else { return }
             
@@ -53,10 +55,12 @@ class AlertController: UIAlertController {
         
         addTextField { textField in
             textField.placeholder = "New Task"
+            textField.text = task?.name
         }
         
         addTextField { textField in
             textField.placeholder = "Note"
+            textField.text = task?.note
         }
     }
 }
